@@ -18,7 +18,7 @@
   2) Enter the command "vagrant up".
 
 #### Recommendations
-Vagrant creates a NAT network with eth0 of all VX images, forwarding a localhost port to TCP port 22 of the guest for SSH access. While this works well for purely local SSH access, it inherantly makes it hard to connect and develop with these devices as if they were actual remote network nodes.
+Vagrant creates a NAT network with eth0 of all VX images, forwarding a localhost port to TCP port 22 of the guest for SSH access. While this works well for purely local SSH access, it inherently makes it hard to connect and develop with these devices as if they were actual remote network nodes.
 
 With that in mind, all Ansible automation has been built around having a local SSH alias for each VX, thus allowing "ssh vagrant@vm" access. This can be achieve through the Vagrant-to-Local script available at the following link.
 
