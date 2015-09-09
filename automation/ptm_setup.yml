@@ -1,0 +1,16 @@
+---
+- hosts: leaf
+  user: vagrant
+  sudo: yes
+  roles:
+    - ptm_setup
+  handlers:
+    - include : handlers/main.yml
+
+- hosts: spine
+  user: vagrant
+  sudo: yes
+  roles:
+    - ptm_setup
+  handlers:
+    - include : handlers/main.yml

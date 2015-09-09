@@ -1,0 +1,13 @@
+[spine]
+s1
+s2
+
+[leaf]
+l1
+l2
+l3
+l4
+
+[all:children]
+spine
+leaf

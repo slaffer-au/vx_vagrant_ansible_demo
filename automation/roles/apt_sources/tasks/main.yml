@@ -1,0 +1,7 @@
+- name: Adding Debian Security Repo
+  apt_repository: repo='deb http://security.debian.org/ wheezy/updates main' state=present
+  sudo: yes
+
+- name: Adding Debian Wheezy Main Repo
+  apt_repository: repo='deb http://ftp.us.debian.org/debian/ wheezy main' state=present
+  sudo: yes

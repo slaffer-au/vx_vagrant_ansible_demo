@@ -1,0 +1,14 @@
+[spine]
+  127.0.0.1 ansible_ssh_port=2222 ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
+  127.0.0.1 ansible_ssh_port=2200 ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
+  127.0.0.1 ansible_ssh_port=2203 ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
+
+
+[leaf]
+  127.0.0.1 ansible_ssh_port=2201 ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
+  127.0.0.1 ansible_ssh_port=2202 ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
+  127.0.0.1 ansible_ssh_port=2204 ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
+
+[all:children]
+  spine
+  leaf
