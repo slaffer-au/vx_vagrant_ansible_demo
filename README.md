@@ -24,7 +24,7 @@ With that in mind, all Ansible automation has been built around having a local S
 
   - https://github.com/slaffer-au/vagrant-to-local
   
-It is strongly recommended to clone and execute the script in Vagrant directory once the "vagrant up" has been successfully completed"    
+It is strongly recommended to clone and execute the script in Vagrant directory once the "vagrant up" has been successfully completed.  
 
 #### Credits
 98% of the Vagrantfile and provisioning automation came from the fantastic Customer Engineering team at Cumulus Networks. Please be sure to check out their demos and code for this and much, much more:
