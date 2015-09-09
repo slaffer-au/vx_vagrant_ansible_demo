@@ -10,12 +10,9 @@ require 'yaml'
 
 Vagrant.configure("2") do |config|
 
-  # Number of nodes to provision
-  numSpines = 1
-  numLeaves = 1
-
   config.vm.box = "cumulus-vx-2.5.3"
 
+  # Number of nodes to provision from external yml file
   properties = YAML.load_file("properties.yml")
   
   # Number of nodes to provision
