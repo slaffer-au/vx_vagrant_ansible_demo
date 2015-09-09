@@ -2,4 +2,4 @@
 Gemfile.lock
 vendor/
 .vagrant/
-v2l
+v2l.py
