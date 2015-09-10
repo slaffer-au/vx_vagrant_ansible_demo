@@ -3,14 +3,14 @@
 
 
 #### Requirements
-  1) VirtualBox, Vagrant and Ansible must already be installed on the system
+1) VirtualBox, Vagrant and Ansible must already be installed on the system.
   
-  2) The Cumulus VX box image must already be added to Vagrant with the name "cumulus-vx-2.5.3"
+2) The Cumulus VX box image must already be added to Vagrant with the name "cumulus-vx-2.5.3".
   
-  - Detailed instruction on the above processes can be found at the following Cumulus Networks User Guide
+  - Detailed instruction on the above processes can be found at the following Cumulus Networks User Guide.
     - http://docs.cumulusnetworks.com/display/VX/Using+Cumulus+VX+with+Vagrant
 
-  3) The hypervisors public SSH key must be at ~/.ssh/id_rsa.pub
+3) The hypervisors public SSH key must be at ~/.ssh/id_rsa.pub
 
 
 #### Side Note
@@ -22,9 +22,9 @@ With that in mind, all Ansible automation has been built around having a local S
 
   
 #### Instructions
-  1) Change to the directory where this repository has been cloned
+  1) Change to the directory where this repository has been cloned.
   
-  2) Edit the properties.yml file with the amount of spines, leaves and first IP address
+  2) Edit the properties.yml file with the amount of spines, leaves and first IP address.
   
   3) Enter the command "vagrant up".
   
