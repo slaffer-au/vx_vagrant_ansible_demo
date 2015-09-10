@@ -10,21 +10,31 @@
   - Detailed instruction on the above processes can be found at the following Cumulus Networks User Guide
     - http://docs.cumulusnetworks.com/display/VX/Using+Cumulus+VX+with+Vagrant
 
-3) The hypervisors public SSH key must be at ~/.ssh/id_rsa.pub
-  
-#### Instructions
-  1) Edit the properties.yml file with the amount of spines, leaves and first IP address
-  
-  2) Enter the command "vagrant up".
+  3) The hypervisors public SSH key must be at ~/.ssh/id_rsa.pub
 
-#### Recommendations
+
+#### Side Note
 Vagrant creates a NAT network with eth0 of all VX images, forwarding a localhost port to TCP port 22 of the guest for SSH access. While this works well for purely local SSH access, it inherently makes it hard to connect and develop with these devices as if they were actual remote network nodes.
 
-With that in mind, all Ansible automation has been built around having a local SSH alias for each VX, thus allowing "ssh vagrant@vm" access. This can be achieve through the Vagrant-to-Local script available at the following link.
+With that in mind, all Ansible automation has been built around having a local SSH alias for each VX, thus allowing "ssh vagrant@vm" access. This is achieved through the Vagrant-to-Local script available at the following link.
 
   - https://github.com/slaffer-au/vagrant-to-local
+
   
-It is strongly recommended to clone and execute the script in Vagrant directory once the "vagrant up" has been successfully completed.  
+#### Instructions
+  1) Change to the directory where this repository has been cloned
+  
+  2) Edit the properties.yml file with the amount of spines, leaves and first IP address
+  
+  3) Enter the command "vagrant up".
+  
+  4) Git Clone or download and execute the Vagrant-to-Local script in same directory once the "vagrant up" has been successfully completed. 
+  
+  5) Connected to the Cumulus VX guests with "vagrant ssh <hostname>" or "ssh vagrant@<hostname>". 
+  
+  6) To run Ansible ad-hoc commands or playbooks, change to the automation directory.
+
+ 
 
 #### Credits
 98% of the Vagrantfile and provisioning automation came from the fantastic Customer Engineering team at Cumulus Networks. Please be sure to check out their demos and code for this and much, much more:
