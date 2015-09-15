@@ -10,7 +10,7 @@
   - Detailed instruction on the above processes can be found at the following Cumulus Networks User Guide.
     - http://docs.cumulusnetworks.com/display/VX/Using+Cumulus+VX+with+Vagrant
 
-3) The hypervisors public SSH key must be at ~/.ssh/id_rsa.pub
+3) The hypervisor's public SSH key must be at ~/.ssh/id_rsa.pub
 
 
 #### Side Note
