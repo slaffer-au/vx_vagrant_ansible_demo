@@ -1,9 +1,9 @@
 graph G {
   graph [hostidtype="hostname", version="1:0"];
-    "s1":"swp1" -- "l1":"swp1";
-    "s1":"swp2" -- "l2":"swp1";
-    "s1":"swp3" -- "l3":"swp1";
-    "s1":"swp4" -- "l4":"swp1";
+    "s1":"swp4" -- "l1":"swp1";
+    "s1":"swp3" -- "l2":"swp1";
+    "s1":"swp2" -- "l3":"swp1";
+    "s1":"swp1" -- "l4":"swp1";
     "s2":"swp1" -- "l1":"swp2";
     "s2":"swp2" -- "l2":"swp2";
     "s2":"swp3" -- "l3":"swp2";

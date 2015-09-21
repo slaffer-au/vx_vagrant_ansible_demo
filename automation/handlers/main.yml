@@ -1,2 +1,6 @@
 - name: restart ptmd
   service: name=ptmd state=restarted
+
+- name: reconfig ptmd
+  command: service ptmd reconfig
+  sudo: yes
