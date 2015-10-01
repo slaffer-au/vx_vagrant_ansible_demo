@@ -1,0 +1,26 @@
+!
+{% for item in ansible_interfaces -%}
+{% if item != 'eth0' %}
+{% if item != 'lo' -%}
+interface {{ item }}
+  ip ospf network point-to-point
+!
+{% endif -%}
+{% endif -%}
+{% endfor -%}
+!
+!
+router-id {{ loopback_ip }}
+router ospf
+  auto-cost reference-bandwidth 40000
+  ospf router-id {{ loopback_ip }}
+  passive-interface default
+{% for item in ansible_interfaces -%}
+{% if item != 'eth0' %}
+{% if item != 'lo' -%}
+  no passive-interface {{ item }}
+{% endif -%}
+{% endif -%}
+{% endfor -%}
+  network {{ loopback_ip }}/32 area 0.0.0.0
+!

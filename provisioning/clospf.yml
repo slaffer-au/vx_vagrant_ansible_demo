@@ -1,0 +1,70 @@
+---
+- hosts: all
+  tasks:
+
+  #####################################
+  #     Interfaces Configuration      #
+  #####################################
+
+  - name: Configure loopback interface
+    cl_interface:
+      name: 'lo'
+      addr_method: 'loopback'
+      ipv4: '{{ loopback_ip }}/32'
+    when: hostvars[inventory_hostname]['ansible_lo']['ipv4_secondaries'] is not defined
+    sudo: yes
+
+  - name: Configure unnumbered interfaces
+    cl_interface:
+      name: '{{ item }}'
+      ipv4: '{{ loopback_ip }}/32'
+    with_items: ansible_interfaces
+    when: item != "lo" and item != "eth0" and ansible_{{item}}['active']
+    sudo: yes
+
+  - name: Add source /etc/network/interfaces.d/*
+    lineinfile: dest=/etc/network/interfaces state=present line='source /etc/network/interfaces.d/*'
+    sudo: yes
+
+  - name: Restart networking
+    service: name=networking state=restarted
+    sudo: yes
+
+
+  #####################################
+  #       Routing Configuration       #
+  #####################################
+
+  - name: Enable OSPF and Zebra daemons
+    replace: dest=/etc/quagga/daemons regexp='(ospfd|zebra)=no' replace='\1=yes' backup=yes
+    sudo: yes
+
+  - name: Restart quagga
+    service: name=quagga state=restarted
+    sudo: yes
+
+  - name: Configure quagga
+    template: src=quagga_config.j2 dest=/etc/quagga/Quagga.conf 
+    sudo: yes
+
+  - name: Restart quagga
+    service: name=quagga state=restarted
+    sudo: yes
+
+
+  # - name: Assign router-id
+    # command: sudo cl-ospf router-id set {{ loopback_ip }}
+
+  # - name: Enable OSPF on all front panel ports
+    # command: sudo cl-ospf interface set {{ item[1] }} {{ item[0] }}
+    # with_nested:
+      # - [ "network point-to-point", "area 0.0.0.0" ]
+      # - ansible_interfaces
+    # when: item[1] != "lo" and item[1] != "eth0" and ansible_{{ item[1] }}['active']
+
+  # - name: Add loopback interface so those routes get announced
+    # command: "{{ item }}"
+    # with_items:
+      # - sudo cl-ospf interface set lo passive
+      # - sudo cl-ospf interface set lo area 0.0.0.0
+    
