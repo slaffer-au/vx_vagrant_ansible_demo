@@ -13,7 +13,7 @@ Vagrant.configure("2") do |config|
   config.vm.box = "cumulus-vx-2.5.3"
 
   # Number of nodes to provision from external yml file
-  properties = YAML.load_file("properties.yml")
+  properties = YAML.load_file("provisioning/properties.yml")
   
   # Number of nodes to provision
   iter = 1
@@ -34,7 +34,7 @@ Vagrant.configure("2") do |config|
         ansible.extra_vars = {
           loopback_ip: properties[:ipAddrPrefix] + iter.to_s
         }
-        ansible.playbook = "clospf.yml"
+        ansible.playbook = "provisioning/clospf.yml"
       end
       
       node.vm.provision "shell" do |s|
@@ -64,7 +64,7 @@ Vagrant.configure("2") do |config|
         ansible.extra_vars = {
           loopback_ip: properties[:ipAddrPrefix] + iter.to_s
         }
-        ansible.playbook = "clospf.yml"
+        ansible.playbook = "provisioning/clospf.yml"
       end
       
       node.vm.provision "shell" do |s|
