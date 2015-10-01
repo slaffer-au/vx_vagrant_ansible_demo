@@ -10,8 +10,8 @@
   - Detailed instruction on the above processes can be found at the following Cumulus Networks User Guide.
     - http://docs.cumulusnetworks.com/display/VX/Using+Cumulus+VX+with+Vagrant
 
-3) The Cumulus Linux Ansible modules must be installed
-  - This achieved with the command "ansible-galaxy install cumulus.CumulusLinux"
+3) The Cumulus Linux Ansible modules must be installed.
+  - This achieved with the command "ansible-galaxy install cumulus.CumulusLinux".
    
   
 4) The hypervisor's public SSH key must be at ~/.ssh/id_rsa.pub
