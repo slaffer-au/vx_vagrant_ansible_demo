@@ -41,7 +41,7 @@ With that in mind, all Ansible automation has been built around having a local S
  
 
 #### Credits
-98% of the Vagrantfile and provisioning automation came from the fantastic Customer Engineering team at Cumulus Networks. Please be sure to check out their demos and code for this and much, much more:
+90% of the Vagrantfile and provisioning automation came from the fantastic Customer Engineering team at Cumulus Networks. Please be sure to check out their demos and code for this and much, much more:
   - http://docs.cumulusnetworks.com/display/VX/Using+Cumulus+VX+with+Vagrant
   - https://github.com/CumulusNetworks/cumulus-vx-vagrant
   - https://github.com/CumulusNetworks/
