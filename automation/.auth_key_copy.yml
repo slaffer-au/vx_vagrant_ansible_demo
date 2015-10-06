@@ -1,7 +1,0 @@
----
-- hosts: all
-  user: vagrant
-  
-  tasks:
-  - name: Copy authorizey keys for management
-    authorized_key: user=vagrant key="{{ lookup('file', '/home/slaffer/.ssh/id_rsa.pub') }}"
